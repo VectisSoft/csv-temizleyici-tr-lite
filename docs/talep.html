@@ -7,13 +7,13 @@
 <p><label>Yaklaşık satır sayısı<br><select name="satir" id="st"><option value="&lt;10k">10 bin altı</option><option value="10k-50k">10–50 bin</option><option value="50k+">50 bin üzeri</option></select></label></p>
 <p><label>Size nasıl dönelim? (e-posta veya telefon)<br><input name="iletisim" id="il" style="width:100%" maxlength="120" required autocomplete="email"></label></p>
 <p style="position:absolute;left:-9999px" aria-hidden="true"><label>Web sitesi<input name="web" id="web" tabindex="-1" autocomplete="off"></label></p>
-<p><label><input type="checkbox" id="kv" required> <a href="#aydinlatma">Aydınlatma metnini</a> okudum, iletişim bilgilerimin ve açıklamamın talebi yanıtlamak amacıyla işlenmesini kabul ediyorum.</label></p>
+<p><label><input type="checkbox" id="kv" required> <a href="#aydinlatma">Aydınlatma metnini</a> okudum. (Bu onay bir rıza değil, bilgilendirildiğinizin teyididir; formu göndermek için gereklidir.)</label></p>
 <div class="cf-turnstile" data-sitekey="0x4AAAAAAF3gRmeYw94eodIy" data-language="tr"></div>
 <p><button class="btn" id="gb" type="submit">Gönder</button></p>
 <p id="ms" role="status" aria-live="polite"></p>
 </form>
 <h2 id="aydinlatma">Kişisel verilerin korunması aydınlatma metni</h2>
-<p><small><b>Veri sorumlusu:</b> bu sitenin işletmecisi (VectisSoft). <b>İşlenen veri:</b> yalnızca yazdığınız iletişim bilgisi, iş açıklaması ve seçtiğiniz ölçek bilgileri; IP adresiniz saklanmaz, yalnızca kötüye kullanımı sınırlamak için tek yönlü özeti 24 saat tutulur. <b>Amaç:</b> talebinizi değerlendirmek ve size teklif iletmek. <b>Hukuki sebep:</b> talebinizin yanıtlanması için gerekli olması ve açık rızanız (KVKK m.5). <b>Aktarım:</b> talebiniz, altyapı sağlayıcı Cloudflare üzerinde şifreli iletimle saklanır ve işletmecinin bilgisayarında işlenir; üçüncü kişilere satılmaz veya pazarlama için kullanılmaz. <b>Saklama:</b> en fazla 180 gün, sonra otomatik silinir. <b>Haklarınız:</b> erişim, düzeltme ve silme talebini bu formda, açıklamaya referans numaranızı yazarak iletebilirsiniz (KVKK m.11).</small></p>
+<p><small><b>Veri sorumlusu:</b> Bu sitenin işletmecisi (ticari ad: VectisSoft). Yasal unvan ve adres bilgisi henüz yayımlanmamıştır. <b>İşlenen veri:</b> yalnızca yazdığınız iletişim bilgisi, iş açıklaması ve seçtiğiniz ölçek bilgileri; IP adresiniz saklanmaz, yalnızca kötüye kullanımı sınırlamak için tek yönlü özeti 24 saat tutulur. <b>Amaç:</b> talebinizi değerlendirmek ve size teklif iletmek. <b>Hukuki sebep:</b> talebinize yanıt vermek, sözleşmenin kurulması için gerekli olduğundan (KVKK m.5/2-c); bu amaç için açık rıza aranmaz. Pazarlama amaçlı iletişim yapılmaz. <b>Aktarım:</b> talebiniz Cloudflare altyapısında (veritabanı Doğu Avrupa bölgesinde) saklanır ve Cloudflare'in küresel ağında iletilir; bu nedenle verileriniz Türkiye dışında işlenir. Ayrıca işletmecinin bilgisayarında işlenir; üçüncü kişilere satılmaz. <b>Saklama:</b> en fazla 180 gün, sonra otomatik silinir. <b>Haklarınız:</b> KVKK m.11 kapsamındaki erişim, düzeltme ve silme taleplerinizi bu forma referans numaranızı yazarak iletebilirsiniz.</small></p>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
 (function(){
@@ -21,6 +21,7 @@ var API="https://gelir-talep.vectissoft-lisans.workers.dev/api/talep";
 var q=new URLSearchParams(location.search).get("hizmet");if(q){document.getElementById("hz").value=q}
 var f=document.getElementById("f"),ms=document.getElementById("ms"),gb=document.getElementById("gb");
 function uid(){var a=new Uint8Array(16);crypto.getRandomValues(a);return Array.from(a,function(b){return b.toString(16).padStart(2,"0")}).join("")}
+var basladi=0;f.addEventListener("input",function(){if(!basladi){basladi=1;if(window.__olay)__olay("form_basladi")}});
 var idem=sessionStorage.getItem("idem")||uid();sessionStorage.setItem("idem",idem);
 function say(t,ok){ms.textContent=t;ms.style.color=ok?"#0a7a2f":"#b00020"}
 f.addEventListener("submit",function(e){
@@ -41,4 +42,4 @@ f.addEventListener("submit",function(e){
  .catch(function(){gb.disabled=false;say("Bağlantı kurulamadı. Talebiniz kaybolmadı; aynı sayfadan Gönder'e tekrar basabilirsiniz (aynı istek iki kez kaydedilmez).")});
 });
 })();
-</script></body></html>
+</script><script>(function(){try{var u="https://gelir-talep.vectissoft-lisans.workers.dev/api/olay";if(/[?&]notrack/.test(location.search)){localStorage.setItem("notrack","1")}if(navigator.webdriver||localStorage.getItem("notrack"))return;window.__olay=function(t){try{navigator.sendBeacon(u,JSON.stringify({yol:location.pathname,tur:t}))}catch(e){}};__olay("goruntuleme")}catch(e){}})();</script></body></html>
