@@ -1,1 +1,44 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Teklif isteyin</title><meta name="description" content="Excel ve veri hizmetleri için teklif formu"><style>body{font:16px/1.6 system-ui,sans-serif;max-width:46rem;margin:0 auto;padding:1rem 16px;color:#1b1b1b;background:#fff}h1,h2{line-height:1.25}a{color:#0b5cad}nav a{margin-right:1rem}.btn{display:inline-block;background:#0b5cad;color:#fff;padding:.6rem 1rem;border-radius:6px;border:0;font-size:1rem;text-decoration:none}input,textarea,select{font:inherit;padding:.4rem;max-width:100%;box-sizing:border-box}img{max-width:100%}.k{background:#f3f6fa;border-left:4px solid #0b5cad;padding:.6rem 1rem;margin:1rem 0}code{background:#eef;padding:0 .25rem}@media(prefers-color-scheme:dark){body{background:#111;color:#e8e8e8}.btn{display:inline-block;background:#0b5cad;color:#fff;padding:.6rem 1rem;border-radius:6px;border:0;font-size:1rem;text-decoration:none}input,textarea,select{font:inherit;padding:.4rem;max-width:100%;box-sizing:border-box}img{max-width:100%}.k{background:#1b222b}a{color:#7ab7ff}code{background:#223}}</style></head><body><nav><a href="index.html">Ana sayfa</a><a href="hizmetler/">Hizmetler</a></nav><h1>Teklif isteyin</h1><p>Ne yapılmasını istediğinizi kısaca yazın; dosyanızı göndermeyin, kişisel/gizli veri paylaşmayın.</p><form onsubmit="return false"><p><label>Hizmet<br><select name="hizmet" id="hz"><option value="excel-otomasyonu">Excel otomasyonu</option><option value="pdf-raporlama">PDF raporlama</option><option value="veri-temizleme">Veri temizleme</option><option value="isletme-takip">İşletme takip yazılımı</option></select></label></p><p><label>Ne yapılacak?<br><textarea name="aciklama" rows="5" style="width:100%" required></textarea></label></p><p><label>Yaklaşık dosya sayısı / satır sayısı<br><input name="olcek" style="width:100%"></label></p><p><label>Size nasıl dönelim? (e-posta veya telefon)<br><input name="iletisim" style="width:100%" required></label></p><p><button class="btn" type="submit">Gönder</button></p></form><p><small>İletişim adresi henüz tanımlanmadı; form şu an gönderim yapmıyor. Geçici olarak GitHub hesabı olanlar Issues kullanabilir.</small></p><script>var q=new URLSearchParams(location.search).get("hizmet");if(q){document.getElementById("hz").value=q}</script></body></html>
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Teklif isteyin</title><meta name="description" content="Excel ve veri hizmetleri için teklif formu"><style>body{font:16px/1.6 system-ui,sans-serif;max-width:46rem;margin:0 auto;padding:1rem 16px;color:#1b1b1b;background:#fff}h1,h2{line-height:1.25}a{color:#0b5cad}nav a{margin-right:1rem}.btn{display:inline-block;background:#0b5cad;color:#fff;padding:.6rem 1rem;border-radius:6px;border:0;font-size:1rem;text-decoration:none}input,textarea,select{font:inherit;padding:.4rem;max-width:100%;box-sizing:border-box}img{max-width:100%}.k{background:#f3f6fa;border-left:4px solid #0b5cad;padding:.6rem 1rem;margin:1rem 0}code{background:#eef;padding:0 .25rem}@media(prefers-color-scheme:dark){body{background:#111;color:#e8e8e8}.k{background:#1b222b}a{color:#7ab7ff}code{background:#223}}</style></head><body><nav><a href="index.html">Ana sayfa</a><a href="hizmetler/">Hizmetler</a></nav><h1>Teklif isteyin</h1>
+<p>Ne yapılmasını istediğinizi kısaca yazın. <b>Dosyanızı göndermeyin; kişisel veya gizli veri yazmayın.</b> Size yazılı, kesin bir teklifle dönülür; bu form bir satın alma değildir ve ücret doğurmaz.</p>
+<form id="f" novalidate>
+<p><label>Hizmet<br><select name="hizmet" id="hz" required><option value="excel-otomasyonu">Excel otomasyonu</option><option value="pdf-raporlama">PDF raporlama</option><option value="veri-temizleme">Veri temizleme</option><option value="isletme-takip">İşletme takip yazılımı</option></select></label></p>
+<p><label>İş açıklaması (20–2000 karakter)<br><textarea name="aciklama" id="ac" rows="6" style="width:100%" minlength="20" maxlength="2000" required></textarea></label></p>
+<p><label>Yaklaşık dosya sayısı<br><select name="dosya" id="ds"><option value="1">1</option><option value="2-5">2–5</option><option value="6+">6 ve üzeri</option></select></label></p>
+<p><label>Yaklaşık satır sayısı<br><select name="satir" id="st"><option value="&lt;10k">10 bin altı</option><option value="10k-50k">10–50 bin</option><option value="50k+">50 bin üzeri</option></select></label></p>
+<p><label>Size nasıl dönelim? (e-posta veya telefon)<br><input name="iletisim" id="il" style="width:100%" maxlength="120" required autocomplete="email"></label></p>
+<p style="position:absolute;left:-9999px" aria-hidden="true"><label>Web sitesi<input name="web" id="web" tabindex="-1" autocomplete="off"></label></p>
+<p><label><input type="checkbox" id="kv" required> <a href="#aydinlatma">Aydınlatma metnini</a> okudum, iletişim bilgilerimin ve açıklamamın talebi yanıtlamak amacıyla işlenmesini kabul ediyorum.</label></p>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAAF3gRmeYw94eodIy" data-language="tr"></div>
+<p><button class="btn" id="gb" type="submit">Gönder</button></p>
+<p id="ms" role="status" aria-live="polite"></p>
+</form>
+<h2 id="aydinlatma">Kişisel verilerin korunması aydınlatma metni</h2>
+<p><small><b>Veri sorumlusu:</b> bu sitenin işletmecisi (VectisSoft). <b>İşlenen veri:</b> yalnızca yazdığınız iletişim bilgisi, iş açıklaması ve seçtiğiniz ölçek bilgileri; IP adresiniz saklanmaz, yalnızca kötüye kullanımı sınırlamak için tek yönlü özeti 24 saat tutulur. <b>Amaç:</b> talebinizi değerlendirmek ve size teklif iletmek. <b>Hukuki sebep:</b> talebinizin yanıtlanması için gerekli olması ve açık rızanız (KVKK m.5). <b>Aktarım:</b> talebiniz, altyapı sağlayıcı Cloudflare üzerinde şifreli iletimle saklanır ve işletmecinin bilgisayarında işlenir; üçüncü kişilere satılmaz veya pazarlama için kullanılmaz. <b>Saklama:</b> en fazla 180 gün, sonra otomatik silinir. <b>Haklarınız:</b> erişim, düzeltme ve silme talebini bu formda, açıklamaya referans numaranızı yazarak iletebilirsiniz (KVKK m.11).</small></p>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+(function(){
+var API="https://gelir-talep.vectissoft-lisans.workers.dev/api/talep";
+var q=new URLSearchParams(location.search).get("hizmet");if(q){document.getElementById("hz").value=q}
+var f=document.getElementById("f"),ms=document.getElementById("ms"),gb=document.getElementById("gb");
+function uid(){var a=new Uint8Array(16);crypto.getRandomValues(a);return Array.from(a,function(b){return b.toString(16).padStart(2,"0")}).join("")}
+var idem=sessionStorage.getItem("idem")||uid();sessionStorage.setItem("idem",idem);
+function say(t,ok){ms.textContent=t;ms.style.color=ok?"#0a7a2f":"#b00020"}
+f.addEventListener("submit",function(e){
+ e.preventDefault();
+ var ac=document.getElementById("ac").value.trim(),il=document.getElementById("il").value.trim();
+ if(ac.length<20){return say("İş açıklaması en az 20 karakter olmalı.")}
+ if(!il){return say("İletişim bilginizi yazın.")}
+ if(!document.getElementById("kv").checked){return say("Aydınlatma metnini onaylamanız gerekir.")}
+ var tk=(f.querySelector("[name=cf-turnstile-response]")||{}).value;
+ if(!tk){return say("Bot doğrulaması henüz tamamlanmadı; birkaç saniye bekleyip tekrar deneyin.")}
+ gb.disabled=true;say("Gönderiliyor…",true);
+ fetch(API,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({hizmet:f.hizmet.value,aciklama:ac,dosya:f.dosya.value,satir:f.satir.value,iletisim:il,web:document.getElementById("web").value,kvkk:true,turnstile:tk,idem:idem})})
+ .then(function(r){return r.json().then(function(j){return [r.status,j]})})
+ .then(function(x){
+   if(x[1].ok){sessionStorage.removeItem("idem");f.reset();say("Talebiniz alındı. Referans numaranız: "+x[1].ref+". Size yazılı olarak dönülecektir; bu bir sipariş veya fiyat taahhüdü değildir.",true);return}
+   gb.disabled=false;say(x[1].hata||"Gönderilemedi.");if(window.turnstile){turnstile.reset()}
+ })
+ .catch(function(){gb.disabled=false;say("Bağlantı kurulamadı. Talebiniz kaybolmadı; aynı sayfadan Gönder'e tekrar basabilirsiniz (aynı istek iki kez kaydedilmez).")});
+});
+})();
+</script></body></html>

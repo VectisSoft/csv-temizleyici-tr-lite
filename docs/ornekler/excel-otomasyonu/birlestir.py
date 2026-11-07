@@ -1,7 +1,9 @@
 """Klasordeki satis_*.csv dosyalarini birlestirir, Ozet sayfasi (urun bazinda toplam) olan xlsx yazar. Python 3 + openpyxl."""
-import csv, sys
+import csv
+import sys
 from collections import defaultdict
 from pathlib import Path
+
 from openpyxl import Workbook
 
 girdi, cikti = Path(sys.argv[1]), sys.argv[2]

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vectissoft.github.io/csv-temizleyici-tr-lite/sitemap.xml
